@@ -1,36 +1,36 @@
 // Stack
-// class Stack {
-//   constructor(){
-//     this.items = []
-//   }
+class Stack {
+  constructor(){
+    this.items = []
+  }
 
-//   push(element){
-//     this.items.push(element)
-//   }
+  push(element){
+    this.items.push(element)
+  }
 
-//   pop(){
-//     if (this.isEmpty()) return 'Stack is empty'
-//     return this.items.pop()
-//   }
+  pop(){
+    if (this.isEmpty()) return 'Stack is empty'
+    return this.items.pop()
+  }
 
-//   peek(){
-//     if (this.isEmpty()) return 'Stack is empty'
-//     return this.items[this.items.length - 1]
-//   }
+  peek(){
+    if (this.isEmpty()) return 'Stack is empty'
+    return this.items[this.items.length - 1]
+  }
 
-//   isEmpty(){
-//     return this.items.length === 0
-//   }
+  isEmpty(){
+    return this.items.length === 0
+  }
 
-//   getSize(){
-//     console.log();
-//     return this.items.length
-//   }
+  getSize(){
+    console.log();
+    return this.items.length
+  }
 
-//   printStack(){
-//     return this.items.join(', ')
-//   }
-// }
+  printStack(){
+    return this.items.join(', ')
+  }
+}
 
 let stack = new Stack();
 

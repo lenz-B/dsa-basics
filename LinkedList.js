@@ -88,8 +88,6 @@ class LinkedList {
       temp = temp.next
     }
   }
-
-
 }
 
 class DoublyLinkedList {
@@ -194,4 +192,3 @@ dlist.display()
 dlist.addEnd(1)
 dlist.addBefore(1,4)
 dlist.display()
-
