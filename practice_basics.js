@@ -175,7 +175,7 @@ a1(() => {
 
 // call, apply and bind
 function greet(greetWord){
-  console.log(`${greetWord}, I am ${this.name}`);
+  console.log(`${greetWord}, njan ${this.name}`);
 }
 
 let person = {
@@ -184,4 +184,31 @@ let person = {
 }
 
 greet.call(person, 'suiii')
+greet.apply(person, ['adi sakke'])
+let bindFun = greet.bind(person, 'hambada pulsu')
 
+bindFun()
+
+// memory leak
+function memoryLeak() {
+  // Accidentally creating a global variable
+  let leakyVar = new Array(1000).fill("Leak");
+  console.log(leakyVar);  
+}
+
+// setInterval(memoryLeak, 1000);
+
+//print fibonacci of 0 to 100
+function fibonacci(n){
+  if (n <= 1) return 1
+  return fibonacci(n - 1) + fibonacci(n - 2)
+}
+
+function printFibonacci(n, max){
+  const fib = fibonacci(n)
+  if (fib >= max) return
+  console.log(fib);
+  printFibonacci(n +1, max)  
+}
+
+printFibonacci(0, 100)
