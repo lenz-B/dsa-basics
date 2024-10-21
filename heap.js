@@ -285,7 +285,6 @@ class MaxHeap {
     if (rightChild <= size && this.heap[rightChild] > this.heap[largest]){
       largest = rightChild
     }
-
     if (largest !== index){
       [this.heap[largest], this.heap[index]] = [this.heap[index], this.heap[largest]]
       this.heapifyDown(largest, size)

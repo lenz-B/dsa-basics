@@ -18,9 +18,10 @@ console.log(ans)
 
 
 
-const midlewere = async (req, res) => {
+const middleware = async (req, res, next) => {
    req.params
   console.log(names)
+  next()
 }
 
 
@@ -30,9 +31,7 @@ db.collectionName.upsert({$set: {name: 'manaf'}}, )
 
 
 
-function numOfleaf(){
 
-}
 
 function helper(current){
   

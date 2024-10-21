@@ -168,4 +168,3 @@ trie.autoSuggest("a"); // returns ["apple", "app"]
 trie.autoSuggest("apr"); // returns ["apricot"]
 trie.autoSuggest("ban"); // returns ["banana"]
 trie.autoSuggest("cat"); // returns []
-

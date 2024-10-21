@@ -127,7 +127,7 @@ class Graph{
   }
 
   removeElement(vertex){
-    if (!this.graph[vertex]) return null
+    if (!this.graph[vertex]) return null  
 
     while(this.graph[vertex].length){
       let edge = this.graph[vertex].pop()
@@ -218,3 +218,6 @@ console.log('DFS:', g.dfs());
 
 g.removeElement('A');
 console.log('After removing vertex A:', g.graph);
+
+
+//_________________Trie_________________
