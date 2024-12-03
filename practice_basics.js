@@ -212,3 +212,61 @@ function printFibonacci(n, max){
 }
 
 printFibonacci(0, 100)
+
+// find the sum of all elements in the array
+const abc = [
+  {
+      a:5,
+      b:[10, 20, 30]
+  },
+  {
+      a:5,
+      b:[10, 20, 30]
+  },
+  {
+      a:10,
+      b:[10, 20, 30]
+    }
+]
+
+
+function sumOfArr(arr){
+  let sum = 0
+  for (let i = 0; i < arr.length; i++){
+    let objsum = 0
+
+    objsum+= arr[i].a + arr[i].b[0] + arr[i].b[1] + arr[i].b[2]
+    console.log(objsum, 'obj');
+    
+    sum+= objsum
+  }
+  return sum
+}
+
+console.log('.........',sumOfArr(abc));
+
+
+//
+let array = [1, 3, 4, 3, 6, 8, 9, 7]
+let result = [];
+
+function isOdd(num) {
+    return num % 2 !== 0
+}
+
+for (let i = 0; i < array.length; i++) {
+    if (isOdd(array[i]) && isOdd(array[i - 1])) {
+        continue;
+    }
+
+    else if (isOdd(array[i]) && isOdd(array[i + 1])) {
+        i++;
+        continue;
+    }
+    
+    else {
+        result.push(array[i]);
+    }
+}
+
+console.log(result);
