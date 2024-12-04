@@ -50,7 +50,7 @@
 // db.collection.aggregate([{$match: {class: 10}, {$sort: -1}, {$limit: 1}, {$skip: 1}, {$project: {_id: 0, name: 1}}}])
 
 
-// // write fun to remove from a liked list
+// // write fun to remove duplicate from a liked list
 
 // function remDup(){
 //   let temp = this.head
