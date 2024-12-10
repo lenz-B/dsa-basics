@@ -331,6 +331,13 @@ class BinarySearchTree {
       this.isBST(node.right, node.value, max)
     )
   }
+  // count leaf nodes
+  countLeaf(node = this.root){
+    if (!node) return 0
+    if (!node.left && !node.right) return 1
+
+    return this.countLeaf(node.left) + this.countLeaf(node.right)
+  }
 }
 
 const bst = new BinarySearchTree();
@@ -355,5 +362,7 @@ console.log("Inorder Traversal after deleting 20: "); // [8, 10, 12, 15, 17, 25]
 bst.inorder()
 console.log("Closest value to 18: ", bst.findClosestValue(18)); // 17
 console.log("Is valid BST: ", bst.isBST()); // true
+console.log(bst.countLeaf());
+
 
 
