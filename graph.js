@@ -102,55 +102,50 @@
 //   }
 // }
 
-class Graph{
+class Graph {
   constructor() {
     this.graph = {}
   }
 
-  addElement(vertex, edge, bidirectional = false){
-    if (!this.graph[vertex]){
-      this.addVertex(vertex)
-    }
+  addElement(vertex, edge, bidirectional = false) {
+    if (!this.graph[vertex]) this.addVertex(vertex)
 
-    if (!this.graph[edge]){
-      this.addVertex(edge)
-    }
+    if (!this.graph[edge]) this.addVertex(edge)
 
     this.graph[vertex].push(edge)
-    if (bidirectional){
-      this.graph[edge].push(vertex)
-    }
+
+    if (bidirectional) this.graph[edge].push(vertex)
   }
 
-  addVertex(vertex){
+  addVertex(vertex) {
     this.graph[vertex] = []
   }
 
-  removeElement(vertex){
-    if (!this.graph[vertex]) return null  
+  removeElement(vertex) {
+    if (!this.graph[vertex]) return null
 
-    while(this.graph[vertex].length){
+    while (this.graph[vertex].length) {
       let edge = this.graph[vertex].pop()
       this.remove(vertex, edge)
     }
 
     delete this.graph[vertex]
 
-    for (let key in this.graph){
+    for (let key in this.graph) {
       this.graph[key] = this.graph[key].filter(edge => edge !== vertex)
     }
   }
 
-  remove(vertex, edge){
-    if(this.graph[vertex]){
+  remove(vertex, edge) {
+    if (this.graph[vertex]) {
       this.graph[vertex] = this.graph[vertex].filter(edg => edg !== edge)
     }
-    if (this.graph[edge]){
+    if (this.graph[edge]) {
       this.graph[edge] = this.graph[edge].filter(vtx => vtx !== vertex)
     }
   }
-  
-  bfs(){
+
+  bfs() {
     let results = []
     let visited = {}
 
@@ -158,12 +153,12 @@ class Graph{
       const queue = [start]
       visited[start] = true
 
-      while(queue.length){
+      while (queue.length) {
         const current = queue.shift()
         results.push(current)
 
         this.graph[current].forEach(other => {
-          if (!visited[other]){
+          if (!visited[other]) {
             visited[other] = true
             results.push(other)
           }
@@ -171,15 +166,15 @@ class Graph{
       }
     }
 
-    for (let vertex in this.graph){
-      if (!visited[vertex]){
+    for (let vertex in this.graph) {
+      if (!visited[vertex]) {
         bfsFun(vertex)
       }
     }
     return results
   }
 
-  dfs(){
+  dfs() {
     let results = []
     let visited = {}
 
@@ -190,14 +185,14 @@ class Graph{
       results.push(vertex)
 
       this.graph[vertex].forEach(edge => {
-        if (!visited[edge]){
+        if (!visited[edge]) {
           dfsFun(edge)
         }
       })
     }
 
-    for (let vertex in this.graph){
-      if (!visited[vertex]){
+    for (let vertex in this.graph) {
+      if (!visited[vertex]) {
         dfsFun(vertex)
       }
     }
@@ -213,8 +208,8 @@ g.addElement('B', 'D'); // non Bidirectional edge between B and D
 g.addElement('D', 'A', true); // Bidirectional edge between D and A
 
 console.log('Before removing vertex A:', g.graph);
-console.log('BFS:', g.bfs()); 
-console.log('DFS:', g.dfs()); 
+console.log('BFS:', g.bfs());
+console.log('DFS:', g.dfs());
 
 g.removeElement('A');
 console.log('After removing vertex A:', g.graph);

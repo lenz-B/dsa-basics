@@ -225,7 +225,7 @@ class BinarySearchTree {
     }
   }
 
-  remove(value){
+  remove(value) {
     this.root = this.removeHelper(this.root, value)
   }
 
@@ -332,7 +332,7 @@ class BinarySearchTree {
     )
   }
   // count leaf nodes
-  countLeaf(node = this.root){
+  countLeaf(node = this.root) {
     if (!node) return 0
     if (!node.left && !node.right) return 1
 
