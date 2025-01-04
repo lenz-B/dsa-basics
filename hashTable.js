@@ -34,7 +34,7 @@ class HashTable {
     // return this.table[index]
 
     const bucket = this.table[index]
-    if (bucket){
+    if (bucket) {
       const sameKey = bucket.find(item => item[0] === key)
       if (sameKey) return sameKey[1]
     }
@@ -46,7 +46,7 @@ class HashTable {
     // this.table[index] = undefined
 
     const bucket = this.table[index]
-    if (bucket){
+    if (bucket) {
       const sameKey = bucket.find(item => item[0] === key)
       if (sameKey) {
         bucket.splice(bucket.indexOf(sameKey), 1)
